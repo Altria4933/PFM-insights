@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct PFM_insightsApp: App {
+    
+    @StateObject var viewRouter = ViewRouter()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(viewRouter: viewRouter)
         }
     }
 }
