@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import CoreData
+
 
 struct ContentView: View {
     
@@ -13,12 +15,34 @@ struct ContentView: View {
     
     @State var showPopUp = false
     
-    let transactions: [Transaction] = [
-        .init(id: 0, description: "Amazon", category: "Shopping", amount: "$11.11"),
-        .init(id: 1, description: "Mortgage Payment", category: "Mortgage & Rent", amount: "$1247.44"),
-        .init(id: 2, description: "Thai Restaurant", category: "Restaurants", amount: "$24.22")
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Transaction.date, ascending: false)])
+    private var transactions: FetchedResults<Transaction>
+    private func saveContext() {
+        do {
+            try viewContext.save()
+        } catch {
+            let error = error as NSError
+            fatalError("Unresolved Error: \(error)")
+        }
+    }
+    private func addList() {
+        withAnimation {
+            let newList = Transaction(context: viewContext)
+            newList.title = "New Task \(Date())"
+            newList.date = Date()
+            saveContext()
+        }
+    }
     
-    ]
+    private func deleteList(offsets: IndexSet) {
+        withAnimation {
+            offsets.map { transactions[$0] }.forEach(viewContext.delete)
+            saveContext()
+       }
+    }
+    
+    
     
     var body: some View {
         GeometryReader { geometry in
@@ -26,29 +50,19 @@ struct ContentView: View {
                 Spacer()
                 switch viewRouter.currentPage {
                 case .home:
-                    
-                    NavigationView {
-                        
-                    List (transactions) {
-                       
-                        Text($0.description)
-                            .font(.title)
-                        Text($0.category)
-                            .font(.subheadline)
-                            .foregroundColor(Color.gray)
-                            .multilineTextAlignment(.leading)
-                        Text($0.amount)
-                            .font(.body)
-                            .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                            .foregroundColor(Color.orange)
-                            .multilineTextAlignment(.trailing)
-                            .lineLimit(0)
-                            .padding(.leading, 22.0)
-                        
-                    }.navigationBarTitle(Text("Transaction List"))
-                        
-                    
+                    NavigationView{
+                        List {
+                            ForEach(transactions) { transaction in
+                                Text(transaction.title ?? "Untitled")
+                                    
+                            }.onDelete(perform: deleteList)
+                        }
+                        .navigationTitle("Transaction List")
+                        .navigationBarItems(trailing: Button("Add") {
+                            addList()
+                        })
                     }
+                 
                 case .habit:
                     Text("Spending Habits")
                 case .goal:
@@ -146,8 +160,11 @@ struct TabBarIcon: View {
     }
 }
 
-struct Transaction: Identifiable {
-    var id: Int
-    let description, category, amount: String
+
+struct Data {
+    let transaction: Transaction
+}
+
+class Data2: NSManagedObject {
     
 }
