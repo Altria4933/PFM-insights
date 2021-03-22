@@ -144,7 +144,11 @@ struct ContentView: View {
                     
                     
                 case .user:
-                    Text("User")
+                    NavigationView{
+                        Login()
+                            .navigationBarHidden(true)
+                            .navigationBarBackButtonHidden(true)
+                    }
                 }
                 Spacer()
                     ZStack {
