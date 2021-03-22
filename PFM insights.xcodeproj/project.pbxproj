@@ -14,6 +14,10 @@
 		1F3B4EF0260856BE00005CCE /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F3B4EE62608566B00005CCE /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1F3B4EF92608572700005CCE /* Wine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3B4EF82608572700005CCE /* Wine.swift */; };
 		1F3B4EFD2608575300005CCE /* PieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3B4EFC2608575300005CCE /* PieChart.swift */; };
+		1F8CB999260933110005722E /* CustomButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8CB995260933110005722E /* CustomButtonModifier.swift */; };
+		1F8CB99A260933110005722E /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8CB996260933110005722E /* CustomTextField.swift */; };
+		1F8CB99B260933110005722E /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8CB997260933110005722E /* Register.swift */; };
+		1F8CB99C260933110005722E /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8CB998260933110005722E /* Login.swift */; };
 		1FB8883D2607FAFE00C4CF27 /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8883C2607FAFE00C4CF27 /* Receipt.swift */; };
 		1FB888422607FB6500C4CF27 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB888412607FB6500C4CF27 /* DetailView.swift */; };
 		1FC0194825FEE1AE00C31806 /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC0194725FEE1AE00C31806 /* ViewRouter.swift */; };
@@ -23,10 +27,6 @@
 		2562F6AC2532FAE0000AB8F3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2562F6AB2532FAE0000AB8F3 /* Preview Assets.xcassets */; };
 		2562F6B72532FAE0000AB8F3 /* PFM_insightsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2562F6B62532FAE0000AB8F3 /* PFM_insightsTests.swift */; };
 		2562F6C22532FAE0000AB8F3 /* PFM_insightsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2562F6C12532FAE0000AB8F3 /* PFM_insightsUITests.swift */; };
-		79CF304E2608C9000053695E /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CF304D2608C9000053695E /* Register.swift */; };
-		79CF30522608C9220053695E /* CustomButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CF30512608C9220053695E /* CustomButtonModifier.swift */; };
-		79CF30562608C92E0053695E /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CF30552608C92E0053695E /* Login.swift */; };
-		79CF305A2608C9380053695E /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CF30592608C9380053695E /* CustomTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +80,10 @@
 		1F3B4EE02608566B00005CCE /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../../../Downloads/Charts-master/Charts.xcodeproj"; sourceTree = "<group>"; };
 		1F3B4EF82608572700005CCE /* Wine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wine.swift; sourceTree = "<group>"; };
 		1F3B4EFC2608575300005CCE /* PieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChart.swift; sourceTree = "<group>"; };
+		1F8CB995260933110005722E /* CustomButtonModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButtonModifier.swift; sourceTree = "<group>"; };
+		1F8CB996260933110005722E /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		1F8CB997260933110005722E /* Register.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
+		1F8CB998260933110005722E /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		1FB8883C2607FAFE00C4CF27 /* Receipt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
 		1FB888412607FB6500C4CF27 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		1FC0194725FEE1AE00C31806 /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
@@ -95,10 +99,6 @@
 		2562F6BD2532FAE0000AB8F3 /* PFM insightsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PFM insightsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2562F6C12532FAE0000AB8F3 /* PFM_insightsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PFM_insightsUITests.swift; sourceTree = "<group>"; };
 		2562F6C32532FAE0000AB8F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		79CF304D2608C9000053695E /* Register.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Register.swift; path = "../../../../../Desktop/PFM-insights的副本/PFM insights/View/Register.swift"; sourceTree = "<group>"; };
-		79CF30512608C9220053695E /* CustomButtonModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomButtonModifier.swift; path = "../../../../../Desktop/PFM-insights的副本/PFM insights/View/CustomButtonModifier.swift"; sourceTree = "<group>"; };
-		79CF30552608C92E0053695E /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Login.swift; path = "../../../../../Desktop/PFM-insights的副本/PFM insights/View/Login.swift"; sourceTree = "<group>"; };
-		79CF30592608C9380053695E /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomTextField.swift; path = "../../../../../Desktop/PFM-insights的副本/PFM insights/View/CustomTextField.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,8 +168,11 @@
 		2562F6A32532FADF000AB8F3 /* PFM insights */ = {
 			isa = PBXGroup;
 			children = (
-				79CF304C2608C8E40053695E /* View */,
 				2562F6A42532FADF000AB8F3 /* PFM_insightsApp.swift */,
+				1F8CB995260933110005722E /* CustomButtonModifier.swift */,
+				1F8CB996260933110005722E /* CustomTextField.swift */,
+				1F8CB998260933110005722E /* Login.swift */,
+				1F8CB997260933110005722E /* Register.swift */,
 				2562F6A62532FADF000AB8F3 /* ContentView.swift */,
 				1F3B4EF82608572700005CCE /* Wine.swift */,
 				1F3B4EFC2608575300005CCE /* PieChart.swift */,
@@ -210,17 +213,6 @@
 				2562F6C32532FAE0000AB8F3 /* Info.plist */,
 			);
 			path = "PFM insightsUITests";
-			sourceTree = "<group>";
-		};
-		79CF304C2608C8E40053695E /* View */ = {
-			isa = PBXGroup;
-			children = (
-				79CF30592608C9380053695E /* CustomTextField.swift */,
-				79CF30552608C92E0053695E /* Login.swift */,
-				79CF30512608C9220053695E /* CustomButtonModifier.swift */,
-				79CF304D2608C9000053695E /* Register.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -382,19 +374,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79CF305A2608C9380053695E /* CustomTextField.swift in Sources */,
 				1F3B4EFD2608575300005CCE /* PieChart.swift in Sources */,
+				1F8CB99A260933110005722E /* CustomTextField.swift in Sources */,
+				1F8CB99C260933110005722E /* Login.swift in Sources */,
 				1F3B4EF92608572700005CCE /* Wine.swift in Sources */,
 				1FB8883D2607FAFE00C4CF27 /* Receipt.swift in Sources */,
-				79CF30562608C92E0053695E /* Login.swift in Sources */,
 				1FC0194825FEE1AE00C31806 /* ViewRouter.swift in Sources */,
-				79CF304E2608C9000053695E /* Register.swift in Sources */,
 				2562F6A72532FADF000AB8F3 /* ContentView.swift in Sources */,
-				79CF30522608C9220053695E /* CustomButtonModifier.swift in Sources */,
+				1F8CB99B260933110005722E /* Register.swift in Sources */,
 				1FB888422607FB6500C4CF27 /* DetailView.swift in Sources */,
 				1F16E4F32602130C00B75FB4 /* TransactionList.xcdatamodeld in Sources */,
 				2562F6A52532FADF000AB8F3 /* PFM_insightsApp.swift in Sources */,
 				1F16E4F82602166900B75FB4 /* Persistence.swift in Sources */,
+				1F8CB999260933110005722E /* CustomButtonModifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
