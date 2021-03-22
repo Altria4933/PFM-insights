@@ -7,7 +7,8 @@
 
 import SwiftUI
 import CoreData
-
+import SwiftUICharts
+import Charts
 
 struct ContentView: View {
     
@@ -15,9 +16,13 @@ struct ContentView: View {
     
     @State var showPopUp = false
     
+    @State private var pieChartEntries: [PieChartDataEntry] = []
+    @State private var category: Wine.Category = .variety
+    
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Transaction.date, ascending: false)])
     private var transactions: FetchedResults<Transaction>
+    
     private func saveContext() {
         do {
             try viewContext.save()
@@ -47,26 +52,97 @@ struct ContentView: View {
     var body: some View {
         GeometryReader { geometry in
                 VStack {
-                Spacer()
                 switch viewRouter.currentPage {
                 case .home:
-                    NavigationView{
-                        List {
-                            ForEach(transactions) { transaction in
-                                Text(transaction.title ?? "Untitled")
-                                    
-                            }.onDelete(perform: deleteList)
+                    NavigationView {
+                        List(receipts) { receipt in
+                            NavigationLink(destination: DetailView(receipt: receipt)) {
+                                ContactRow(receipt: receipt)
+                            }
                         }
-                        .navigationTitle("Transaction List")
-                        .navigationBarItems(trailing: Button("Add") {
-                            addList()
-                        })
+                        .navigationBarTitle("Transaction List")
                     }
+                    
                  
                 case .habit:
-                    Text("Spending Habits")
+                    
+                    VStack {
+                        Text("Spending Habits")
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
+                            .padding(.top, 20.0)
+                        Text("March")
+                            .font(.title)
+                            .fontWeight(.bold)
+                            .padding(.top, 20.0)
+                        
+                        PieChart(entries: Wine.entriesForWines(Wine.allWines,
+                                                               category: category),
+                                 category: $category)
+                            .frame(height: 400)
+                        //Picker(selection: $category, label: Text("Category")) {
+                         //   Text("Variety").tag(Wine.Category.variety)
+                         //   Text("Winery").tag(Wine.Category.winery)
+                       // }
+                      //  .pickerStyle(SegmentedPickerStyle())
+                        
+                    }
+                    .padding(.horizontal)
+                            
                 case .goal:
-                    Text("Budget Goals")
+                        Text("Budget Goal")
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
+                            .padding(.top, 20.0)
+                        
+                    HStack{
+                        Image(systemName: "checkmark.circle")
+                            .resizable()
+                            .frame(width: 50.0, height: 50.0)
+                            .foregroundColor(/*@START_MENU_TOKEN@*/Color("MainColor")/*@END_MENU_TOKEN@*/)
+
+                            VStack(alignment: .center) {
+                                Text("Need")
+                                    .font(.title)
+                                    .fontWeight(.medium)
+                                    .multilineTextAlignment(.leading)
+                               
+                                Text("$300(60%)")
+                                
+                            }
+                            
+                    }
+                            .padding(.vertical, 50.0)
+                    HStack{
+                        Image(systemName: "heart.circle")
+                            .resizable()
+                            .frame(width: 50.0, height: 50.0)
+                            .foregroundColor(/*@START_MENU_TOKEN@*/Color("MainColor")/*@END_MENU_TOKEN@*/)
+                            VStack(alignment: .center) {
+                                Text("Want")
+                                    .font(.title)
+                                    .fontWeight(.medium)
+                                
+                                Text("$100(20%)")
+                            }
+                    }
+                            .padding(.bottom, 50.0)
+                    HStack{
+                        Image(systemName: "face.smiling")
+                            .resizable()
+                            .frame(width: 50.0, height: 50.0)
+                            .foregroundColor(/*@START_MENU_TOKEN@*/Color("MainColor")/*@END_MENU_TOKEN@*/)
+                            VStack(alignment: .center) {
+                                Text("Joy")
+                                    .font(.title)
+                                    .fontWeight(.medium)
+                               
+                                Text("$100(20%)")
+                            }
+                            
+                    }
+                    
+                    
                 case .user:
                     Text("User")
                 }
@@ -140,6 +216,8 @@ struct PlusMenu: View {
                 .transition(.scale)
         }
 }
+
+
 struct TabBarIcon: View {
     @StateObject var viewRouter: ViewRouter
     let assignedPage: Page
@@ -161,10 +239,46 @@ struct TabBarIcon: View {
 }
 
 
-struct Data {
-    let transaction: Transaction
-}
+
 
 class Data2: NSManagedObject {
     
+}
+
+
+struct ContactRow: View {
+    
+    let receipt: Receipt
+    
+    var body: some View {
+        HStack {
+         Image(receipt.imageName)
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: 60, height: 60)
+                .clipped()
+                .cornerRadius(50)
+ 
+            VStack(alignment: .leading) {
+                Text(receipt.vandor)
+                    .font(.system(size: 17, weight: .medium, design: .default))
+                    .fontWeight(.semibold)
+                Text(receipt.type)
+                    .font(.subheadline)
+                    .foregroundColor(Color.gray)
+                
+            }
+            Spacer()
+            VStack(alignment: .trailing){
+                Text("NZD " + receipt.price)
+                    .font(.subheadline)
+                    .fontWeight(.semibold)
+                    .foregroundColor(Color("MainColor"))
+                Text(receipt.date)
+                    .font(.subheadline)
+                    .foregroundColor(Color.gray)
+            }
+            
+        }
+    }
 }

@@ -3,12 +3,19 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		1F16E4F32602130C00B75FB4 /* TransactionList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1F16E4F12602130C00B75FB4 /* TransactionList.xcdatamodeld */; };
 		1F16E4F82602166900B75FB4 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F16E4F72602166900B75FB4 /* Persistence.swift */; };
+		1F3808A9260841380045A05E /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 1F3808A8260841380045A05E /* SwiftUICharts */; };
+		1F3B4EEF260856BE00005CCE /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F3B4EE62608566B00005CCE /* Charts.framework */; };
+		1F3B4EF0260856BE00005CCE /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F3B4EE62608566B00005CCE /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1F3B4EF92608572700005CCE /* Wine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3B4EF82608572700005CCE /* Wine.swift */; };
+		1F3B4EFD2608575300005CCE /* PieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3B4EFC2608575300005CCE /* PieChart.swift */; };
+		1FB8883D2607FAFE00C4CF27 /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8883C2607FAFE00C4CF27 /* Receipt.swift */; };
+		1FB888422607FB6500C4CF27 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB888412607FB6500C4CF27 /* DetailView.swift */; };
 		1FC0194825FEE1AE00C31806 /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC0194725FEE1AE00C31806 /* ViewRouter.swift */; };
 		2562F6A52532FADF000AB8F3 /* PFM_insightsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2562F6A42532FADF000AB8F3 /* PFM_insightsApp.swift */; };
 		2562F6A72532FADF000AB8F3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2562F6A62532FADF000AB8F3 /* ContentView.swift */; };
@@ -19,6 +26,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		1F3B4EE52608566B00005CCE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F3B4EE02608566B00005CCE /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 65AD9E95D9ED4DC0BD73A743;
+			remoteInfo = Charts;
+		};
+		1F3B4EE72608566B00005CCE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F3B4EE02608566B00005CCE /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1CBBC58C6CE1EBEE9852CE41;
+			remoteInfo = ChartsTests;
+		};
 		2562F6B32532FAE0000AB8F3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2562F6992532FADF000AB8F3 /* Project object */;
@@ -35,9 +56,28 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		1F3B4EF1260856BE00005CCE /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1F3B4EF0260856BE00005CCE /* Charts.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		1F16E4F22602130C00B75FB4 /* TransactionList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TransactionList.xcdatamodel; sourceTree = "<group>"; };
 		1F16E4F72602166900B75FB4 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		1F3B4EE02608566B00005CCE /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../../../Downloads/Charts-master/Charts.xcodeproj"; sourceTree = "<group>"; };
+		1F3B4EF82608572700005CCE /* Wine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wine.swift; sourceTree = "<group>"; };
+		1F3B4EFC2608575300005CCE /* PieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChart.swift; sourceTree = "<group>"; };
+		1FB8883C2607FAFE00C4CF27 /* Receipt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
+		1FB888412607FB6500C4CF27 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		1FC0194725FEE1AE00C31806 /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
 		2562F6A12532FADF000AB8F3 /* PFM insights.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PFM insights.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2562F6A42532FADF000AB8F3 /* PFM_insightsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PFM_insightsApp.swift; sourceTree = "<group>"; };
@@ -58,6 +98,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F3808A9260841380045A05E /* SwiftUICharts in Frameworks */,
+				1F3B4EEF260856BE00005CCE /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +120,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F3B4EE12608566B00005CCE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1F3B4EE62608566B00005CCE /* Charts.framework */,
+				1F3B4EE82608566B00005CCE /* ChartsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1F3B4EEE260856BE00005CCE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		2562F6982532FADF000AB8F3 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +143,7 @@
 				2562F6B52532FAE0000AB8F3 /* PFM insightsTests */,
 				2562F6C02532FAE0000AB8F3 /* PFM insightsUITests */,
 				2562F6A22532FADF000AB8F3 /* Products */,
+				1F3B4EEE260856BE00005CCE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,6 +162,11 @@
 			children = (
 				2562F6A42532FADF000AB8F3 /* PFM_insightsApp.swift */,
 				2562F6A62532FADF000AB8F3 /* ContentView.swift */,
+				1F3B4EF82608572700005CCE /* Wine.swift */,
+				1F3B4EFC2608575300005CCE /* PieChart.swift */,
+				1FB8883C2607FAFE00C4CF27 /* Receipt.swift */,
+				1F3B4EE02608566B00005CCE /* Charts.xcodeproj */,
+				1FB888412607FB6500C4CF27 /* DetailView.swift */,
 				1F16E4F72602166900B75FB4 /* Persistence.swift */,
 				1F16E4F12602130C00B75FB4 /* TransactionList.xcdatamodeld */,
 				1FC0194725FEE1AE00C31806 /* ViewRouter.swift */,
@@ -149,12 +213,16 @@
 				2562F69D2532FADF000AB8F3 /* Sources */,
 				2562F69E2532FADF000AB8F3 /* Frameworks */,
 				2562F69F2532FADF000AB8F3 /* Resources */,
+				1F3B4EF1260856BE00005CCE /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "PFM insights";
+			packageProductDependencies = (
+				1F3808A8260841380045A05E /* SwiftUICharts */,
+			);
 			productName = "PFM insights";
 			productReference = 2562F6A12532FADF000AB8F3 /* PFM insights.app */;
 			productType = "com.apple.product-type.application";
@@ -226,8 +294,17 @@
 				Base,
 			);
 			mainGroup = 2562F6982532FADF000AB8F3;
+			packageReferences = (
+				1F3808A7260841380045A05E /* XCRemoteSwiftPackageReference "ChartView" */,
+			);
 			productRefGroup = 2562F6A22532FADF000AB8F3 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 1F3B4EE12608566B00005CCE /* Products */;
+					ProjectRef = 1F3B4EE02608566B00005CCE /* Charts.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				2562F6A02532FADF000AB8F3 /* PFM insights */,
@@ -236,6 +313,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		1F3B4EE62608566B00005CCE /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 1F3B4EE52608566B00005CCE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1F3B4EE82608566B00005CCE /* ChartsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChartsTests.xctest;
+			remoteRef = 1F3B4EE72608566B00005CCE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		2562F69F2532FADF000AB8F3 /* Resources */ = {
@@ -268,8 +362,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F3B4EFD2608575300005CCE /* PieChart.swift in Sources */,
+				1F3B4EF92608572700005CCE /* Wine.swift in Sources */,
+				1FB8883D2607FAFE00C4CF27 /* Receipt.swift in Sources */,
 				1FC0194825FEE1AE00C31806 /* ViewRouter.swift in Sources */,
 				2562F6A72532FADF000AB8F3 /* ContentView.swift in Sources */,
+				1FB888422607FB6500C4CF27 /* DetailView.swift in Sources */,
 				1F16E4F32602130C00B75FB4 /* TransactionList.xcdatamodeld in Sources */,
 				2562F6A52532FADF000AB8F3 /* PFM_insightsApp.swift in Sources */,
 				1F16E4F82602166900B75FB4 /* Persistence.swift in Sources */,
@@ -586,6 +684,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1F3808A7260841380045A05E /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1F3808A8260841380045A05E /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1F3808A7260841380045A05E /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		1F16E4F12602130C00B75FB4 /* TransactionList.xcdatamodeld */ = {
