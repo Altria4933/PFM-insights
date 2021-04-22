@@ -11,6 +11,7 @@ import SwiftUICharts
 import Charts
 
 struct ContentView: View {
+<<<<<<< HEAD
     
     @StateObject var viewRouter: ViewRouter
     
@@ -228,6 +229,8 @@ struct TabBarIcon: View {
     let width, height: CGFloat
 
     let systemIconName, tabName: String
+=======
+>>>>>>> parent of 1101229... Test input page
     var body: some View {
         VStack{
             Image( systemIconName).resizable().aspectRatio(contentMode: .fit).frame(width:width, height:height).padding(.top, 20)
