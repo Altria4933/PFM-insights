@@ -88,7 +88,25 @@ struct ContentView: View {
                         
                     }
                     .padding(.horizontal)
-                            
+                case .add:
+                    VStack {
+                        Text("Spending Habits")
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
+                            .padding(.top, 20.0)
+                        Text("March")
+                            .font(.title)
+                            .fontWeight(.bold)
+                            .padding(.top, 20.0)
+                        
+                        PieChart(entries: Wine.entriesForWines(Wine.allWines,
+                                                               category: category),
+                                 category: $category)
+                            .frame(height: 400)
+                        
+                    }
+                    .padding(.horizontal)
+                    
                 case .goal:
                         Text("Budget Goal")
                             .font(.largeTitle)
@@ -152,23 +170,11 @@ struct ContentView: View {
                 }
                 Spacer()
                     ZStack {
-                        if showPopUp {PlusMenu(widthAndHeight: geometry.size.width/7).offset(y: -geometry.size.height/6)
-                            }
+                        
                         HStack{
                         TabBarIcon(viewRouter: viewRouter, assignedPage: .home, width: geometry.size.width/5, height: geometry.size.height/28, systemIconName: "Home", tabName: "Home")
                         TabBarIcon(viewRouter: viewRouter, assignedPage: .habit, width: geometry.size.width/5, height: geometry.size.height/28, systemIconName: "Habit", tabName: "Habit")
-                        ZStack {
-                            Circle().foregroundColor(Color("MainColor")).frame(width: geometry.size.width/7, height: geometry.size.height/7)
-                                .shadow(radius: 2)
-                            Image("Add").resizable().aspectRatio(contentMode: .fit).frame(width: geometry.size.width/12-6, height: geometry.size.height/12-6)
-                                .rotationEffect(Angle(degrees: showPopUp ? 90:0))
-                        }
-                        .offset(y:-geometry.size.height/8/2)
-                        .onTapGesture {
-                            withAnimation {
-                                showPopUp.toggle()
-                            }
-                        }
+                        TabBarIcon(viewRouter: viewRouter, assignedPage: .add, width: geometry.size.width/5, height: geometry.size.height/28, systemIconName: "File", tabName: "Add")
                         TabBarIcon(viewRouter: viewRouter, assignedPage: .goal, width: geometry.size.width/5, height: geometry.size.height/28, systemIconName: "Goal", tabName: "Goal")
                         TabBarIcon(viewRouter: viewRouter, assignedPage: .user, width: geometry.size.width/5, height: geometry.size.height/28, systemIconName: "Account", tabName: "Account")
                         
