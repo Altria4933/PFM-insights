@@ -89,23 +89,11 @@ struct ContentView: View {
                     }
                     .padding(.horizontal)
                 case .add:
-                    VStack {
-                        Text("Spending Habits")
-                            .font(.largeTitle)
-                            .fontWeight(.bold)
-                            .padding(.top, 20.0)
-                        Text("March")
-                            .font(.title)
-                            .fontWeight(.bold)
-                            .padding(.top, 20.0)
-                        
-                        PieChart(entries: Wine.entriesForWines(Wine.allWines,
-                                                               category: category),
-                                 category: $category)
-                            .frame(height: 400)
-                        
+                    NavigationView{
+                        AddForm()
+                            .navigationBarHidden(true)
+                            .navigationBarBackButtonHidden(true)
                     }
-                    .padding(.horizontal)
                     
                 case .goal:
                         Text("Budget Goal")
@@ -117,7 +105,7 @@ struct ContentView: View {
                         Image(systemName: "checkmark.circle")
                             .resizable()
                             .frame(width: 50.0, height: 50.0)
-                            .foregroundColor(/*@START_MENU_TOKEN@*/Color("MainColor")/*@END_MENU_TOKEN@*/)
+                            .foregroundColor(Color("MainColor"))
 
                             VStack(alignment: .center) {
                                 Text("Need")
