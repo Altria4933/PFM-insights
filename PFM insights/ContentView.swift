@@ -6,14 +6,12 @@
 //
 
 import SwiftUI
+import CoreData
+import SwiftUICharts
+import Charts
 
 struct ContentView: View {
-<<<<<<< Updated upstream
-=======
     
-    
-    @State var title = ""
-    @State var SavedTitle = ""
     @StateObject var viewRouter: ViewRouter
     
     @State var showPopUp = false
@@ -21,13 +19,13 @@ struct ContentView: View {
     @State private var pieChartEntries: [PieChartDataEntry] = []
     @State private var category: Wine.Category = .variety
     
-    @Environment(\.managedObjectContext) private var managedObjectContext
+    @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Transaction.date, ascending: false)])
     private var transactions: FetchedResults<Transaction>
     
     private func saveContext() {
         do {
-            try managedObjectContext.save()
+            try viewContext.save()
         } catch {
             let error = error as NSError
             fatalError("Unresolved Error: \(error)")
@@ -35,7 +33,7 @@ struct ContentView: View {
     }
     private func addList() {
         withAnimation {
-            let newList = Transaction(context: managedObjectContext)
+            let newList = Transaction(context: viewContext)
             newList.title = "New Task \(Date())"
             newList.date = Date()
             saveContext()
@@ -44,17 +42,12 @@ struct ContentView: View {
     
     private func deleteList(offsets: IndexSet) {
         withAnimation {
-            offsets.map { transactions[$0] }.forEach(managedObjectContext.delete)
+            offsets.map { transactions[$0] }.forEach(viewContext.delete)
             saveContext()
        }
     }
     
-    private func saveData(){
-        UserDefaults.standard.set(self.title, forKey: "Title")
-    }
-    private func getData(){
-        SavedTitle = UserDefaults.standard.string(forKey: "Title") ?? ""
-    }
+    
     
     var body: some View {
         GeometryReader { geometry in
@@ -69,7 +62,8 @@ struct ContentView: View {
                         }
                         .navigationBarTitle("Transaction List")
                     }
-                
+                    
+                 
                 case .habit:
                     
                     VStack {
@@ -94,19 +88,7 @@ struct ContentView: View {
                         
                     }
                     .padding(.horizontal)
-                    
-                case .add:
-                    VStack {
-                        Text("")
-                        Spacer()
-                        Text("Enter Title")
-                        TextField("Enter Title", text: $title)
-                        Button(action:{}){
-                            Text("Save")
-                        }
-                    }
-                    
-                    
+                            
                 case .goal:
                         Text("Budget Goal")
                             .font(.largeTitle)
@@ -170,11 +152,23 @@ struct ContentView: View {
                 }
                 Spacer()
                     ZStack {
-                        
+                        if showPopUp {PlusMenu(widthAndHeight: geometry.size.width/7).offset(y: -geometry.size.height/6)
+                            }
                         HStack{
                         TabBarIcon(viewRouter: viewRouter, assignedPage: .home, width: geometry.size.width/5, height: geometry.size.height/28, systemIconName: "Home", tabName: "Home")
                         TabBarIcon(viewRouter: viewRouter, assignedPage: .habit, width: geometry.size.width/5, height: geometry.size.height/28, systemIconName: "Habit", tabName: "Habit")
-                        TabBarIcon(viewRouter: viewRouter, assignedPage: .add, width: geometry.size.width/5, height: geometry.size.height/28, systemIconName: "File", tabName: "Add")
+                        ZStack {
+                            Circle().foregroundColor(Color("MainColor")).frame(width: geometry.size.width/7, height: geometry.size.height/7)
+                                .shadow(radius: 2)
+                            Image("Add").resizable().aspectRatio(contentMode: .fit).frame(width: geometry.size.width/12-6, height: geometry.size.height/12-6)
+                                .rotationEffect(Angle(degrees: showPopUp ? 90:0))
+                        }
+                        .offset(y:-geometry.size.height/8/2)
+                        .onTapGesture {
+                            withAnimation {
+                                showPopUp.toggle()
+                            }
+                        }
                         TabBarIcon(viewRouter: viewRouter, assignedPage: .goal, width: geometry.size.width/5, height: geometry.size.height/28, systemIconName: "Goal", tabName: "Goal")
                         TabBarIcon(viewRouter: viewRouter, assignedPage: .user, width: geometry.size.width/5, height: geometry.size.height/28, systemIconName: "Account", tabName: "Account")
                         
@@ -199,9 +193,7 @@ struct PlusMenu: View {
     let widthAndHeight: CGFloat
         
         var body: some View {
-            
             HStack(spacing: 50) {
-               
                 ZStack {
                     Circle()
                         .foregroundColor(Color("MainColor"))
@@ -213,7 +205,6 @@ struct PlusMenu: View {
                         .frame(width: widthAndHeight, height: widthAndHeight)
                         .foregroundColor(.white)
                 }
-                
                 ZStack {
                     Circle()
                         .foregroundColor(Color("MainColor"))
@@ -225,7 +216,8 @@ struct PlusMenu: View {
                         .frame(width: widthAndHeight, height: widthAndHeight)
                         .foregroundColor(.white)
                 }
-            }.transition(.scale)
+            }
+                .transition(.scale)
         }
 }
 
@@ -236,17 +228,61 @@ struct TabBarIcon: View {
     let width, height: CGFloat
 
     let systemIconName, tabName: String
->>>>>>> Stashed changes
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack{
+            Image( systemIconName).resizable().aspectRatio(contentMode: .fit).frame(width:width, height:height).padding(.top, 20)
+            Text(tabName).font(.footnote)
+            Spacer()
+        }
+        .padding(.horizontal,-4)
+        .onTapGesture {
+            viewRouter.currentPage = assignedPage
+        }
+        .foregroundColor(viewRouter.currentPage == assignedPage ? Color("TabBarHighlight") : .gray)
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            ContentView()
+
+
+
+class Data2: NSManagedObject {
+    
+}
+
+
+struct ContactRow: View {
+    
+    let receipt: Receipt
+    
+    var body: some View {
+        HStack {
+         Image(receipt.imageName)
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: 60, height: 60)
+                .clipped()
+                .cornerRadius(50)
+ 
+            VStack(alignment: .leading) {
+                Text(receipt.vandor)
+                    .font(.system(size: 17, weight: .medium, design: .default))
+                    .fontWeight(.semibold)
+                Text(receipt.type)
+                    .font(.subheadline)
+                    .foregroundColor(Color.gray)
+                
+            }
+            Spacer()
+            VStack(alignment: .trailing){
+                Text("NZD " + receipt.price)
+                    .font(.subheadline)
+                    .fontWeight(.semibold)
+                    .foregroundColor(Color("MainColor"))
+                Text(receipt.date)
+                    .font(.subheadline)
+                    .foregroundColor(Color.gray)
+            }
+            
         }
     }
 }

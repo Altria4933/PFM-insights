@@ -9,9 +9,15 @@ import SwiftUI
 
 @main
 struct PFM_insightsApp: App {
+    
+    let persistenceContainer = PersistenceController.shared
+    
+    
+    @StateObject var viewRouter = ViewRouter()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(viewRouter: viewRouter)
+                .environment(\.managedObjectContext, persistenceContainer.container.viewContext)
         }
     }
 }

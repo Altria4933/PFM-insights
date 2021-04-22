@@ -1,12 +1,12 @@
 {
   "images" : [
     {
-      "filename" : "Icon metro-file-text.png",
+      "filename" : "Icon ionic-ios-heart-empty.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Icon metro-file-text@2x.png",
+      "filename" : "Icon ionic-ios-heart-empty@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
