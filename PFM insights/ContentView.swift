@@ -12,6 +12,7 @@ import Charts
 
 struct ContentView: View {
 <<<<<<< HEAD
+<<<<<<< HEAD
     
     @StateObject var viewRouter: ViewRouter
     
@@ -229,6 +230,8 @@ struct TabBarIcon: View {
     let width, height: CGFloat
 
     let systemIconName, tabName: String
+=======
+>>>>>>> parent of 1101229... Test input page
 =======
 >>>>>>> parent of 1101229... Test input page
     var body: some View {
