@@ -16,9 +16,9 @@ struct NewDataView: View {
             
             HStack{
                 
-                Text("\(homeData.updateItem == nil ? "Add New" : "Update") Task")
-                    .font(.system(size: 65))
-                    .fontWeight(.heavy)
+                Text("\(homeData.updateItem == nil ? "Add New" : "Update") Transaction")
+                    .font(.system(size: 55))
+                    .fontWeight(.bold)
                     .foregroundColor(.black)
                 
                 Spacer(minLength: 0)
@@ -61,12 +61,12 @@ struct NewDataView: View {
                 
                 Label(
                     title: { Text(homeData.updateItem == nil ? "Add Now" : "Update")
-                        .font(.title2)
+                        .font(.title)
                         .foregroundColor(.white)
                         .fontWeight(.bold)
                     },
                     icon: { Image(systemName: "plus")
-                        .font(.title2)
+                        .font(.title)
                         .foregroundColor(.white)
                     })
                     .padding(.vertical)
@@ -85,5 +85,4 @@ struct NewDataView: View {
         .background(Color.black.opacity(0.06).ignoresSafeArea(.all, edges: .bottom))
     }
 }
-
 

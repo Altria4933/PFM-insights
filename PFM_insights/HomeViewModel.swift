@@ -19,7 +19,7 @@ class HomeViewModel : ObservableObject{
     // Checking And Updating Date....
     
     // Storing Update Item...
-    @Published var updateItem : Task!
+    @Published var updateItem : Transaction!
     
     let calender = Calendar.current
     
@@ -69,7 +69,7 @@ class HomeViewModel : ObservableObject{
             return
         }
         
-        let newTask = Task(context: context)
+        let newTask = Transaction(context: context)
         newTask.date = date
         newTask.content = content
         
@@ -88,7 +88,7 @@ class HomeViewModel : ObservableObject{
         }
     }
     
-    func EditItem(item: Task){
+    func EditItem(item: Transaction){
         
         updateItem = item
         // togging the newDataView....

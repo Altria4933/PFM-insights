@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F0CB1CA26345F4500DE63C6 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0CB1C926345F4500DE63C6 /* DetailView.swift */; };
 		1FBD147F2633CCDD007812A3 /* PFM_insightsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBD147E2633CCDD007812A3 /* PFM_insightsApp.swift */; };
 		1FBD14832633CCDF007812A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FBD14822633CCDF007812A3 /* Assets.xcassets */; };
 		1FBD14862633CCDF007812A3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FBD14852633CCDF007812A3 /* Preview Assets.xcassets */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F0CB1C926345F4500DE63C6 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		1FBD147B2633CCDD007812A3 /* PFM_insights.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PFM_insights.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FBD147E2633CCDD007812A3 /* PFM_insightsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PFM_insightsApp.swift; sourceTree = "<group>"; };
 		1FBD14822633CCDF007812A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 			children = (
 				1FBD147E2633CCDD007812A3 /* PFM_insightsApp.swift */,
 				1FBD14932633CDB2007812A3 /* Home.swift */,
+				1F0CB1C926345F4500DE63C6 /* DetailView.swift */,
 				1FBD149D2633CE68007812A3 /* NewDataView.swift */,
 				1FBD14A42633CED1007812A3 /* DateButton.swift */,
 				1FBD149A2633CE1F007812A3 /* ContentView.swift */,
@@ -174,6 +177,7 @@
 				1FBD14C52633FD6D007812A3 /* CustomTextField.swift in Sources */,
 				1FBD148B2633CCDF007812A3 /* PFM_insights.xcdatamodeld in Sources */,
 				1FBD14B82633FC88007812A3 /* Login.swift in Sources */,
+				1F0CB1CA26345F4500DE63C6 /* DetailView.swift in Sources */,
 				1FBD14BE2633FCFA007812A3 /* CustomButtonModifier.swift in Sources */,
 				1FBD14C12633FD1A007812A3 /* Register.swift in Sources */,
 				1FBD14972633CDE8007812A3 /* HomeViewModel.swift in Sources */,

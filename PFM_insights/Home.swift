@@ -11,7 +11,7 @@ import CoreData
 struct Home: View {
     @StateObject var homeData = HomeViewModel()
     // Fetching Data.....
-    @FetchRequest(entity: Task.entity(), sortDescriptors: [NSSortDescriptor(key: "date", ascending: true)],animation: .spring()) var results : FetchedResults<Task>
+    @FetchRequest(entity: Transaction.entity(), sortDescriptors: [NSSortDescriptor(key: "date", ascending: true)],animation: .spring()) var results : FetchedResults<Transaction>
     @Environment(\.managedObjectContext) var context
     
     var body: some View {
@@ -26,7 +26,7 @@ struct Home: View {
                         
                         Text("Transaction List")
                             .font(.largeTitle)
-                            .fontWeight(.heavy)
+                            .fontWeight(.bold)
                             .foregroundColor(.black)
                         
                         Spacer(minLength: 0)
@@ -44,7 +44,7 @@ struct Home: View {
                         Text("No Transaction")
                             .font(.title)
                             .foregroundColor(.black)
-                            .fontWeight(.heavy)
+                            .fontWeight(.bold)
                         
                         Spacer()
                     }
@@ -63,7 +63,8 @@ struct Home: View {
                                             .fontWeight(.bold)
                                             
                                         Text(task.date ?? Date(),style: .date)
-                                            .fontWeight(.bold)
+                                            .font(.subheadline)
+                                            .foregroundColor(Color.gray)
                                     })
                                     .foregroundColor(.black)
                                     .contextMenu{
@@ -104,7 +105,7 @@ struct Home: View {
             .padding()
         })
         .ignoresSafeArea(.all, edges: .top)
-        .background(Color.black.opacity(0.06).ignoresSafeArea(.all, edges: .all))
+        .background(Color.black.opacity(0.04).ignoresSafeArea(.all, edges: .all))
         .sheet(isPresented: $homeData.isNewData, content: {
             
             NewDataView(homeData: homeData)
