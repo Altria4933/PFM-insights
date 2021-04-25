@@ -12,7 +12,7 @@ class HomeViewModel : ObservableObject{
     
     @Published var content = ""
     @Published var date = Date()
-    
+    @Published var money = ""
     // For NewData Sheet...
     @Published var isNewData = false
     
@@ -57,7 +57,7 @@ class HomeViewModel : ObservableObject{
             // Means Update Old Data...
             updateItem.date = date
             updateItem.content = content
-            
+            updateItem.money = money
             try! context.save()
             
             // removing updatingItem if successful
@@ -65,6 +65,7 @@ class HomeViewModel : ObservableObject{
             updateItem = nil
             isNewData.toggle()
             content = ""
+            money = ""
             date = Date()
             return
         }
@@ -72,7 +73,7 @@ class HomeViewModel : ObservableObject{
         let newTask = Transaction(context: context)
         newTask.date = date
         newTask.content = content
-        
+        newTask.money = money
         // saving data...
         
         do{
@@ -81,6 +82,7 @@ class HomeViewModel : ObservableObject{
             // success means closing view...
             isNewData.toggle()
             content = ""
+            money = ""
             date = Date()
         }
         catch{
@@ -94,6 +96,7 @@ class HomeViewModel : ObservableObject{
         // togging the newDataView....
         date = item.date!
         content = item.content!
+        money = item.money!
         isNewData.toggle()
     }
 }

@@ -41,7 +41,7 @@ struct NewDataView: View {
                     .foregroundColor(.black)
                     .padding()
                 TextField("Transaction amount",
-                          text: $homeData.content)
+                          text: $homeData.money)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .keyboardType(.numberPad)
                     .padding()

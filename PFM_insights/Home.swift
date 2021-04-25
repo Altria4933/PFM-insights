@@ -56,8 +56,8 @@ struct Home: View {
                                 
                                 ForEach(results){task in
                                     
-                                    VStack(alignment: .leading, spacing: 5, content: {
-                                        
+                                    HStack(content: {
+                                        VStack(alignment: .leading){
                                         Text(task.content ?? "")
                                             .font(.title)
                                             .fontWeight(.bold)
@@ -65,6 +65,15 @@ struct Home: View {
                                         Text(task.date ?? Date(),style: .date)
                                             .font(.subheadline)
                                             .foregroundColor(Color.gray)
+                                        }
+                                        Spacer()
+                                        VStack(alignment: .trailing){
+                                            Text(task.money ?? "")
+                                                .font(.subheadline)
+                                                .fontWeight(.bold)
+                                                .foregroundColor(Color("MainColor"))
+                                        }
+                                        
                                     })
                                     .foregroundColor(.black)
                                     .contextMenu{
