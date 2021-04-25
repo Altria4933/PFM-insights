@@ -61,6 +61,7 @@ class HomeViewModel : ObservableObject{
             updateItem.content = content
             updateItem.vendor = vendor
             updateItem.money = money
+            updateItem.category = category
             try! context.save()
             
             // removing updatingItem if successful
@@ -69,6 +70,7 @@ class HomeViewModel : ObservableObject{
             isNewData.toggle()
             content = ""
             vendor = ""
+            category = ""
             money = ""
             date = Date()
             return
