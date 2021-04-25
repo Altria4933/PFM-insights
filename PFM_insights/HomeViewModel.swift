@@ -10,9 +10,8 @@ import CoreData
 
 class HomeViewModel : ObservableObject{
     
-    @Published var vendor = ""
+    @Published var content = ""
     @Published var date = Date()
-    @Published var amount: Double = 0.0
     
     // For NewData Sheet...
     @Published var isNewData = false
@@ -22,15 +21,15 @@ class HomeViewModel : ObservableObject{
     // Storing Update Item...
     @Published var updateItem : Transaction!
     
-    let calendar = Calendar.current
+    let calender = Calendar.current
     
     func checkDate()->String{
         
-        if calendar.isDateInToday(date){
+        if calender.isDateInToday(date){
             
             return "Today"
         }
-        else if calendar.isDateInTomorrow(date){
+        else if calender.isDateInTomorrow(date){
             return "Tomorrow"
         }
         else{
@@ -42,7 +41,7 @@ class HomeViewModel : ObservableObject{
         
         if value == "Today"{date = Date()}
         else if value == "Tomorrow"{
-            date = calendar.date(byAdding: .day, value: 1, to: Date())!
+            date = calender.date(byAdding: .day, value: 1, to: Date())!
         }
         else{
             // do something...
@@ -57,23 +56,22 @@ class HomeViewModel : ObservableObject{
             
             // Means Update Old Data...
             updateItem.date = date
-            updateItem.vendor = vendor
-            updateItem.amount = amount
+            updateItem.content = content
+            
             try! context.save()
             
-            // removing updatingItem if successful
+            // removing updatingItem if successfull
             
             updateItem = nil
             isNewData.toggle()
-            vendor = ""
+            content = ""
             date = Date()
             return
         }
         
         let newTask = Transaction(context: context)
         newTask.date = date
-        newTask.vendor = vendor
-        newTask.amount = amount
+        newTask.content = content
         
         // saving data...
         
@@ -82,7 +80,7 @@ class HomeViewModel : ObservableObject{
             try context.save()
             // success means closing view...
             isNewData.toggle()
-            vendor = ""
+            content = ""
             date = Date()
         }
         catch{
@@ -95,8 +93,7 @@ class HomeViewModel : ObservableObject{
         updateItem = item
         // togging the newDataView....
         date = item.date!
-        vendor = item.vendor!
-        amount = item.amount
+        content = item.content!
         isNewData.toggle()
     }
 }
