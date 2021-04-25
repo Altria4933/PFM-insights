@@ -107,14 +107,15 @@ struct NewDataView: View {
     func calculate () {
         let model = PFM_model()
         let dateformatter = DateFormatter()
-        dateformatter.timeStyle = .medium
-        dateString = dateformatter.string(from: date)
-        amount = Double(amountString) ?? 0.0
+        dateformatter.dateStyle = .short
+        dateString = dateformatter.string(from: homeData.date)
+        amount = Double(homeData.money) ?? 0.0
         do{
             let prediction = try
-                model.prediction(Date:String(dateString),Description:String(vendor),Amount:Double(amount))
+                model.prediction(Date:String(dateString),Description:String(homeData.vendor),Amount:Double(amount))
             
             Category = prediction.Category__need_want_joy_
+            homeData.category = Category
             alertTitle = "This transaction is a..."
             alertBody = Category
         }catch {
