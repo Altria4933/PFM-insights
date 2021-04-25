@@ -40,7 +40,7 @@ struct NewDataView: View {
                     .foregroundColor(.black)
                     .padding()
                 TextField("Description",
-                          text: $vendor)
+                          text: $homeData.vendor)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
             }
@@ -51,7 +51,7 @@ struct NewDataView: View {
                     .foregroundColor(.black)
                     .padding()
                 TextField("Transaction amount",
-                          text: $amountString)
+                          text: $homeData.money)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .keyboardType(.numberPad)
                     .padding()
@@ -68,15 +68,14 @@ struct NewDataView: View {
                 
                 //Spacer(minLength: 0)
                 
-                DatePicker("", selection: $date, displayedComponents: .date)
+                DatePicker("", selection: $homeData.date, displayedComponents: .date)
                     .labelsHidden()
             }
             .padding()
             
             // Add Button....
             //Button(action: {homeData.writeData(context: context)}, label: {
-            Button(action: calculate, label: {
-
+            Button(action: update, label: {
                 Label(
                     title: { Text(homeData.updateItem == nil ? "Add Now" : "Update")
                         .font(.title)
@@ -97,8 +96,8 @@ struct NewDataView: View {
             })
             .padding()
             // disabling button when no data...
-            //.disabled(homeData.content == "" ? true : false)
-            //.opacity(homeData.content == "" ? 0.5 : 1)
+            .disabled(homeData.vendor == "" ? true : false)
+            .opacity(homeData.vendor == "" ? 0.5 : 1)
         }
         .alert(isPresented: $showingAlert)  {
             Alert(title: Text(alertTitle), message: Text(alertBody), dismissButton: .default(Text("OK")))
@@ -124,7 +123,13 @@ struct NewDataView: View {
         }
         showingAlert = true
     }
+    
+    func update() {
+        calculate()
+        homeData.writeData(context: context)
+    }
 }
+
 struct NewDataView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()

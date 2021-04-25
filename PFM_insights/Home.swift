@@ -58,7 +58,7 @@ struct Home: View {
                                     
                                     HStack(content: {
                                         VStack(alignment: .leading){
-                                        Text(task.content ?? "")
+                                        Text(task.vendor ?? "")
                                             .font(.title)
                                             .fontWeight(.bold)
                                             
