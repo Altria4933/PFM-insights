@@ -65,6 +65,7 @@ struct Home: View {
                                         Text(task.date ?? Date(),style: .date)
                                             .font(.subheadline)
                                             .foregroundColor(Color.gray)
+                                       
                                     })
                                     .foregroundColor(.black)
                                     .contextMenu{
