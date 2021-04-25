@@ -23,6 +23,7 @@
 		1FBD14BE2633FCFA007812A3 /* CustomButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBD14BD2633FCFA007812A3 /* CustomButtonModifier.swift */; };
 		1FBD14C12633FD1A007812A3 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBD14C02633FD1A007812A3 /* Register.swift */; };
 		1FBD14C52633FD6D007812A3 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBD14C42633FD6D007812A3 /* CustomTextField.swift */; };
+		252EF04B2635201000D72732 /* PFM model.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 252EF04A2635201000D72732 /* PFM model.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		1FBD14BD2633FCFA007812A3 /* CustomButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonModifier.swift; sourceTree = "<group>"; };
 		1FBD14C02633FD1A007812A3 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		1FBD14C42633FD6D007812A3 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		252EF04A2635201000D72732 /* PFM model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "PFM model.mlmodel"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 				1FBD14962633CDE8007812A3 /* HomeViewModel.swift */,
 				1FBD14822633CCDF007812A3 /* Assets.xcassets */,
 				1FBD14872633CCDF007812A3 /* Persistence.swift */,
+				252EF04A2635201000D72732 /* PFM model.mlmodel */,
 				1FBD148C2633CCDF007812A3 /* Info.plist */,
 				1FBD14892633CCDF007812A3 /* PFM_insights.xcdatamodeld */,
 				1FBD14842633CCDF007812A3 /* Preview Content */,
@@ -182,6 +185,7 @@
 				1FBD14C12633FD1A007812A3 /* Register.swift in Sources */,
 				1FBD14972633CDE8007812A3 /* HomeViewModel.swift in Sources */,
 				1FBD149B2633CE1F007812A3 /* ContentView.swift in Sources */,
+				252EF04B2635201000D72732 /* PFM model.mlmodel in Sources */,
 				1FBD14882633CCDF007812A3 /* Persistence.swift in Sources */,
 				1FBD14942633CDB2007812A3 /* Home.swift in Sources */,
 				1FBD14B02633DFCB007812A3 /* Habit.swift in Sources */,

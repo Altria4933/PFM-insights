@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "9B8367AD-8C9B-4471-86D1-D6DB84857E65"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "770ED8D1-C01B-4F65-BA2B-16D72E95BFC7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PFM_insights/Home.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "Home"
+            landmarkType = "14">
+            <Locations>
+               <Location
+                  uuid = "770ED8D1-C01B-4F65-BA2B-16D72E95BFC7 - aea8d2b9e7328a00"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PFM_insights.Home.results.getter : SwiftUI.FetchedResults&lt;PFM_insights.Transaction&gt;"
+                  moduleName = "PFM_insights"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/altria/Documents/PFM%20insights/PFM_insights/Home.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "240">
+               </Location>
+               <Location
+                  uuid = "770ED8D1-C01B-4F65-BA2B-16D72E95BFC7 - 15f84ca9adc95bb0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PFM_insights.Home.init() -&gt; PFM_insights.Home"
+                  moduleName = "PFM_insights"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/altria/Documents/PFM%20insights/PFM_insights/Home.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "199">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
