@@ -51,11 +51,7 @@ struct NewDataView: View {
                     .foregroundColor(.black)
                     .padding()
                 TextField("Transaction amount",
-<<<<<<< Updated upstream
-                          text: $homeData.money)
-=======
                           text: $amountString)
->>>>>>> Stashed changes
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .keyboardType(.numberPad)
                     .padding()
