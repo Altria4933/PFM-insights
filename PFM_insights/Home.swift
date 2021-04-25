@@ -61,10 +61,10 @@ struct Home: View {
                                         Text(task.vendor ?? "")
                                             .font(.title)
                                             .fontWeight(.bold)
-                                            
-                                        Text(task.date ?? Date(),style: .date)
-                                            .font(.subheadline)
-                                            .foregroundColor(Color.gray)
+                                        Text(task.category ?? "")
+                                                .font(.title)
+                                                .fontWeight(.bold)
+                                        
                                         }
                                         Spacer()
                                         VStack(alignment: .trailing){
@@ -72,6 +72,9 @@ struct Home: View {
                                                 .font(.subheadline)
                                                 .fontWeight(.bold)
                                                 .foregroundColor(Color("MainColor"))
+                                        Text(task.date ?? Date(),style: .date)
+                                                .font(.subheadline)
+                                                .foregroundColor(Color.gray)
                                         }
                                         
                                     })
