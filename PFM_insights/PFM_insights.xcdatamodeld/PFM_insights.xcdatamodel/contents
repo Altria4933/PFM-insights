@@ -4,7 +4,7 @@
         <attribute name="amount" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="content" optional="YES" attributeType="String"/>
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="vandor" optional="YES" attributeType="String"/>
+        <attribute name="vendor" optional="YES" attributeType="String"/>
     </entity>
     <elements>
         <element name="Transaction" positionX="-45" positionY="0" width="128" height="89"/>

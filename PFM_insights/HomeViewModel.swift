@@ -21,15 +21,15 @@ class HomeViewModel : ObservableObject{
     // Storing Update Item...
     @Published var updateItem : Transaction!
     
-    let calender = Calendar.current
+    let calendar = Calendar.current
     
     func checkDate()->String{
         
-        if calender.isDateInToday(date){
+        if calendar.isDateInToday(date){
             
             return "Today"
         }
-        else if calender.isDateInTomorrow(date){
+        else if calendar.isDateInTomorrow(date){
             return "Tomorrow"
         }
         else{
@@ -41,7 +41,7 @@ class HomeViewModel : ObservableObject{
         
         if value == "Today"{date = Date()}
         else if value == "Tomorrow"{
-            date = calender.date(byAdding: .day, value: 1, to: Date())!
+            date = calendar.date(byAdding: .day, value: 1, to: Date())!
         }
         else{
             // do something...
@@ -60,7 +60,7 @@ class HomeViewModel : ObservableObject{
             
             try! context.save()
             
-            // removing updatingItem if successfull
+            // removing updatingItem if successful
             
             updateItem = nil
             isNewData.toggle()

@@ -10,45 +10,53 @@ import SwiftUI
 struct NewDataView: View {
     @ObservedObject var homeData : HomeViewModel
     @Environment(\.managedObjectContext) var context
+    
     var body: some View {
         
-        VStack{
+        VStack(alignment: .leading, spacing: 20){
             
-            HStack{
-                
-                Text("\(homeData.updateItem == nil ? "Add New" : "Update") Transaction")
-                    .font(.system(size: 55))
+            Section{
+                Text("\(homeData.updateItem == nil ? "Add a New" : "Update") Transaction")
+                    .font(.system(size: 35))
                     .fontWeight(.bold)
                     .foregroundColor(.black)
-                
+                    .padding()
                 Spacer(minLength: 0)
             }
-            .padding()
-            
-            TextEditor(text: $homeData.content)
-                .padding()
+           Section{
+                Text("Please enter the vendor name")
+                    .font(.subheadline)
+                    .fontWeight(.bold)
+                    .foregroundColor(.black)
+                    .padding()
+                TextField("Description",
+                          text: $homeData.content)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding()
+            }
+            Section{
+                Text("Please select the transaction amount")
+                    .font(.subheadline)
+                    .fontWeight(.bold)
+                    .foregroundColor(.black)
+                    .padding()
+                TextField("Transaction amount",
+                          text: $homeData.content)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .keyboardType(.numberPad)
+                    .padding()
+            }
             
             Divider()
                 .padding(.horizontal)
             
-            HStack{
-                
-                Text("When")
-                    .font(.title)
+            Section{
+                Text("Please select the transaction date")
+                    .font(.subheadline)
                     .fontWeight(.bold)
                     .foregroundColor(.black)
                 
-                Spacer(minLength: 0)
-            }
-            .padding()
-            
-            HStack(spacing: 10){
-                
-                DateButton(title: "Today", homeData: homeData)
-                
-                DateButton(title: "Tomorrow", homeData: homeData)
-                
-                // Date Picker...
+                //Spacer(minLength: 0)
                 
                 DatePicker("", selection: $homeData.date, displayedComponents: .date)
                     .labelsHidden()
@@ -82,7 +90,15 @@ struct NewDataView: View {
             .disabled(homeData.content == "" ? true : false)
             .opacity(homeData.content == "" ? 0.5 : 1)
         }
-        .background(Color.black.opacity(0.06).ignoresSafeArea(.all, edges: .bottom))
+        //.background(Color.black.opacity(0.06).ignoresSafeArea(.all, edges: .bottom))
     }
+}
+struct NewDataView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+            
+            
+            
+}
 }
 
