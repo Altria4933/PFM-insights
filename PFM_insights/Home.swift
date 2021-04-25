@@ -17,67 +17,33 @@ struct Home: View {
     var body: some View {
         
         GeometryReader { geometry in
-            NavigationView{
-            ZStack(alignment: Alignment(horizontal: .trailing, vertical: .bottom), content: {
+        
+            VStack{
                 
-                VStack(spacing: 0){
-                    
-                    HStack{
-                        
-                        Text("Transaction List")
-                            .font(.largeTitle)
-                            .fontWeight(.bold)
-                            .foregroundColor(.black)
-                        
-                        Spacer(minLength: 0)
-                    }
-                    .padding()
-                    .padding(.top,UIApplication.shared.windows.first?.safeAreaInsets.top)
-                    .background(Color.white)
-                    
-                    // Empty View....
-                    
+                // Empty View....
+            NavigationView{
+                
                     if results.isEmpty{
-                        
-                        Spacer()
-                        
-                        Text("No Transaction")
-                            .font(.title)
-                            .foregroundColor(.black)
-                            .fontWeight(.bold)
-                        
-                        Spacer()
+                       
+                            Spacer()
+                            
+                            Text("No Transaction")
+                                .font(.title)
+                                .foregroundColor(.black)
+                                .fontWeight(.bold)
+                            
+                            Spacer()
+                            
+        
                     }
                     else{
-                        
-                        ScrollView(.vertical, showsIndicators: false, content: {
-                            
-                            LazyVStack(alignment: .leading,spacing: 20){
-                                
+        
+                            List{
                                 ForEach(results){task in
-                                    
-                                    HStack(content: {
-                                        VStack(alignment: .leading){
-                                        Text(task.vendor ?? "")
-                                            .font(.title)
-                                            .fontWeight(.bold)
-                                        Text(task.category ?? "")
-                                                .font(.title)
-                                                .fontWeight(.bold)
-                                        
-                                        }
-                                        Spacer()
-                                        VStack(alignment: .trailing){
-                                            Text(task.money ?? "")
-                                                .font(.subheadline)
-                                                .fontWeight(.bold)
-                                                .foregroundColor(Color("MainColor"))
-                                        Text(task.date ?? Date(),style: .date)
-                                                .font(.subheadline)
-                                                .foregroundColor(Color.gray)
-                                        }
-                                        
-                                    })
+                                    NavigationLink(destination: DetailView(task:task)) {
+                                        ListRow(task: task)
+                                    }
+                                   
                                     .foregroundColor(.black)
                                     .contextMenu{
                                         
@@ -93,37 +59,31 @@ struct Home: View {
                                         })
                                     }
                                 }
-                            }
-                            .padding()
-                        })
+                                
+                            }.navigationBarTitle("Transaction List")
+                                
+      
                     }
-                }
-               
+                
             
             // Add Button...
+                
+            
+        }
+            }
             
             Button(action: {homeData.isNewData.toggle()}, label: {
-                
-                Image(systemName: "plus")
-                    .font(.largeTitle)
-                    .foregroundColor(.white)
-                    .padding(20)
-                    .background(
-                    
-                        AngularGradient(gradient: .init(colors: [Color("Color"),Color("Color1")]), center: .center)
-                    )
-                    .clipShape(Circle())
+                Image(systemName: "rectangle.stack.fill.badge.plus")
+                    .padding(.top, 10.0)
+                    .font(.title2)
+             
             })
-            .padding()
-        })
-        .ignoresSafeArea(.all, edges: .top)
-        .background(Color.black.opacity(0.04).ignoresSafeArea(.all, edges: .all))
-        .sheet(isPresented: $homeData.isNewData, content: {
+            .padding(.leading, 350.0)
+            .sheet(isPresented: $homeData.isNewData, content: {
             
             NewDataView(homeData: homeData)
         })
-    }
-}
+        }
     }
 }
 
@@ -131,4 +91,35 @@ struct Home_Previews: PreviewProvider {
     static var previews: some View {
         Home()
     }
+}
+
+struct ListRow: View {
+    
+    let task: Transaction
+    
+    var body: some View {
+        
+        HStack{
+            VStack(alignment: .leading){
+            Text(task.vendor ?? "")
+                .font(.title)
+                .fontWeight(.semibold)
+            Text(task.category ?? "")
+                    .fontWeight(.bold)
+                .foregroundColor(Color.gray)
+               
+            }
+            Spacer()
+            VStack(alignment: .trailing){
+                Text("$\(task.money ?? "")")
+                    .font(.title3)
+                    .fontWeight(.bold)
+                    .foregroundColor(Color("MainColor"))
+            Text(task.date ?? Date(),style: .date)
+                    .foregroundColor(Color.gray)
+            
+    }
+}
+
+}
 }

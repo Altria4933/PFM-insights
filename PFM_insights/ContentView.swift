@@ -23,6 +23,7 @@ struct ContentView: View {
             }
             Habit().tabItem { Image(systemName: "heart")
                 Text("Habit")
+                    
             }
             Home().tabItem { Image(systemName: "target")
                 Text("Goal")
@@ -33,7 +34,7 @@ struct ContentView: View {
                 .tabItem { Image(systemName: "person")
                 Text("Account")
             }
-        }.accentColor(.orange)
+        }.accentColor(Color("MainColor"))
         
         
     }

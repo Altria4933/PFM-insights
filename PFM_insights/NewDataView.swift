@@ -23,53 +23,52 @@ struct NewDataView: View {
     
     var body: some View {
         
-        VStack(alignment: .leading, spacing: 20){
+        VStack(alignment: .leading, spacing: 2){
             
             Section{
                 Text("\(homeData.updateItem == nil ? "Add a New" : "Update") Transaction")
-                    .font(.system(size: 35))
-                    .fontWeight(.bold)
-                    .foregroundColor(.black)
+                    .font(.system(size: 60))
+                    .fontWeight(.semibold)
+                    .foregroundColor(Color("MainColor"))
                     .padding()
-                Spacer(minLength: 0)
             }
            Section{
                 Text("Please enter the vendor name")
-                    .font(.subheadline)
-                    .fontWeight(.bold)
-                    .foregroundColor(.black)
+                    .font(.title3)
+                    .fontWeight(.regular)
+                    .foregroundColor(Color.black)
                     .padding()
-                TextField("Description",
+                TextField("Vendor Name",
                           text: $homeData.vendor)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
             }
             Section{
                 Text("Please select the transaction amount")
-                    .font(.subheadline)
-                    .fontWeight(.bold)
+                    .font(.title3)
+                    .fontWeight(.regular)
                     .foregroundColor(.black)
                     .padding()
-                TextField("Transaction amount",
+                TextField("Transaction Amount",
                           text: $homeData.money)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .keyboardType(.numberPad)
                     .padding()
             }
             
-            Divider()
-                .padding(.horizontal)
+            
             
             Section{
                 Text("Please select the transaction date")
-                    .font(.subheadline)
-                    .fontWeight(.bold)
+                    .font(.title3)
+                    .fontWeight(.regular)
                     .foregroundColor(.black)
                 
                 //Spacer(minLength: 0)
                 
                 DatePicker("", selection: $homeData.date, displayedComponents: .date)
                     .labelsHidden()
+                    .accentColor(Color("MainColor"))
             }
             .padding()
             
@@ -88,11 +87,8 @@ struct NewDataView: View {
                     })
                     .padding(.vertical)
                     .frame(width: UIScreen.main.bounds.width - 30)
-                    .background(
-                    
-                        LinearGradient(gradient: .init(colors: [Color("Color"),Color("Color1")]), startPoint: .leading, endPoint: .trailing)
-                    )
-                    .cornerRadius(8)
+                    .background(Color("MainColor"))
+                    .cornerRadius(10)
             })
             .padding()
             // disabling button when no data...
