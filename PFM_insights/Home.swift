@@ -29,7 +29,7 @@ struct Home: View {
                             
                             Text("No Transaction")
                                 .font(.title)
-                                .foregroundColor(.black)
+                                .foregroundColor(Color("TextColor"))
                                 .fontWeight(.bold)
                             
                             Spacer()
@@ -104,6 +104,7 @@ struct ListRow: View {
             Text(task.vendor ?? "")
                 .font(.title)
                 .fontWeight(.semibold)
+                .foregroundColor(Color("TextColor"))
             Text(task.category ?? "")
                     .fontWeight(.bold)
                 .foregroundColor(Color.gray)

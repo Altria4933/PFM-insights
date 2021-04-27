@@ -36,7 +36,7 @@ struct NewDataView: View {
                 Text("Please enter the vendor name")
                     .font(.title3)
                     .fontWeight(.regular)
-                    .foregroundColor(Color.black)
+                    .foregroundColor(Color("TextColor"))
                     .padding()
                 TextField("Vendor Name",
                           text: $homeData.vendor)
@@ -47,7 +47,7 @@ struct NewDataView: View {
                 Text("Please select the transaction amount")
                     .font(.title3)
                     .fontWeight(.regular)
-                    .foregroundColor(.black)
+                    .foregroundColor(Color("TextColor"))
                     .padding()
                 TextField("Transaction Amount",
                           text: $homeData.money)
@@ -62,7 +62,7 @@ struct NewDataView: View {
                 Text("Please select the transaction date")
                     .font(.title3)
                     .fontWeight(.regular)
-                    .foregroundColor(.black)
+                    .foregroundColor(Color("TextColor"))
                 
                 //Spacer(minLength: 0)
                 
