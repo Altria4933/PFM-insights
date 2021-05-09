@@ -11,7 +11,7 @@ import UIKit
 import Foundation
 
 struct Habit: View {
-    @StateObject var habitData = HabitViewModel()
+    
     @Environment(\.managedObjectContext) var context
     @FetchRequest(entity: Transaction.entity(), sortDescriptors: [NSSortDescriptor(key: "date", ascending: true)],animation: .spring()) var results : FetchedResults<Transaction>
     
@@ -59,12 +59,12 @@ struct Habit: View {
         ratioWant = (countWant) / (countWant + countJoy + countNeed) * 100
         ratioJoy = (countJoy) / (countWant + countJoy + countNeed) * 100
         ratioNeed = (countNeed) / (countWant + countJoy + countNeed) * 100
-          print (countWant)
-          print (countJoy)
-          print (countNeed)
-          print (ratioWant)
-          print (ratioJoy)
-          print (ratioNeed)
+          print (Int(countWant))
+          print (Int(countJoy))
+          print (Int(countNeed))
+          print (Int(ratioWant))
+          print (Int(ratioJoy))
+          print (Int(ratioNeed))
        }
        catch {
           print (error)
@@ -82,6 +82,9 @@ struct Habit: View {
         }
     }
     
+    func RatioNeed() {
+        
+    }
 
 
     var body: some View {
@@ -119,8 +122,8 @@ struct Habit: View {
                     .font(.title)
                     .fontWeight(.medium)
                     .multilineTextAlignment(.leading)
-               
-                Text("$\(sum)(\(ratioNeed)%)")
+                SumNeed()
+                Text("(\(ratioNeed)%)")
                 
             }
             
@@ -138,8 +141,8 @@ struct Habit: View {
                 Text("Want")
                     .font(.title)
                     .fontWeight(.medium)
-                
-                Text("$\(sum)(\(ratioWant)%)")
+                SumWant()
+                Text("(\(ratioWant)%)")
             }
     }
     .padding(.bottom, 50.0)
@@ -155,8 +158,8 @@ struct Habit: View {
                 Text("Joy")
                     .font(.title)
                     .fontWeight(.medium)
-               
-                Text("$\(sum)(\(ratioJoy)%)")
+                SumJoy()
+                Text("$(\(ratioJoy)%)")
             }
             
     }
@@ -169,6 +172,58 @@ struct Habit: View {
 struct Habit_Previews: PreviewProvider {
     static var previews: some View {
         Habit()
+    }
+}
+
+
+struct SumNeed: View {
+    
+    @FetchRequest(entity: Transaction.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Transaction.money, ascending: false)], predicate: NSPredicate(format: "category == %@", "Need")) var fetchRequest: FetchedResults<Transaction>
+    
+        // sum results using reduce
+    var sumNeed : Double {
+        fetchRequest.reduce(0) {
+            $0+$1.amount
+        }
+    }
+    var body: some View {
+        VStack{
+            Text("$\(Int(sumNeed))")
+        }
+    }
+}
+
+struct SumWant: View {
+    
+    @FetchRequest(entity: Transaction.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Transaction.money, ascending: false)], predicate: NSPredicate(format: "category == %@", "Want")) var fetchRequest: FetchedResults<Transaction>
+    
+        // sum results using reduce
+    var sumWant : Double {
+        fetchRequest.reduce(0) {
+            $0+$1.amount
+        }
+    }
+    var body: some View {
+        VStack{
+            Text("$\(Int(sumWant))")
+        }
+    }
+}
+
+struct SumJoy: View {
+    
+    @FetchRequest(entity: Transaction.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Transaction.money, ascending: false)], predicate: NSPredicate(format: "category == %@", "Joy")) var fetchRequest: FetchedResults<Transaction>
+    
+        // sum results using reduce
+    var sumJoy : Double {
+        fetchRequest.reduce(0) {
+            $0+$1.amount
+        }
+    }
+    var body: some View {
+        VStack{
+            Text("$\(Int(sumJoy))")
+        }
     }
 }
 
