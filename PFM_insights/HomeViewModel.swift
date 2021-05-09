@@ -13,6 +13,7 @@ class HomeViewModel : ObservableObject{
     @Published var content = ""
     @Published var date = Date()
     @Published var money = ""
+    @Published var amount = 0.0
     @Published var category = ""
     @Published var vendor = ""
     // For NewData Sheet...
@@ -51,6 +52,8 @@ class HomeViewModel : ObservableObject{
     }
     
     func writeData(context : NSManagedObjectContext){
+        //convert amount(string) to double
+        amount = Double(money)!
         
         // Updating Item.....
         
@@ -72,6 +75,7 @@ class HomeViewModel : ObservableObject{
             vendor = ""
             category = ""
             money = ""
+            amount = 0.0
             date = Date()
             return
         }
@@ -81,6 +85,7 @@ class HomeViewModel : ObservableObject{
         newTask.content = content
         newTask.vendor = vendor
         newTask.money = money
+        newTask.amount = amount
         newTask.category = category
         // saving data...
         
@@ -101,6 +106,8 @@ class HomeViewModel : ObservableObject{
     }
     
     func EditItem(item: Transaction){
+        //convert amount(string) to double
+        amount = Double(money)!
         
         updateItem = item
         // togging the newDataView....
@@ -109,6 +116,7 @@ class HomeViewModel : ObservableObject{
         vendor = item.vendor!
         category = item.category!
         money = item.money!
+        amount = item.amount
         isNewData.toggle()
     }
 }

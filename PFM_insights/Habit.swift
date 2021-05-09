@@ -17,7 +17,7 @@ struct Habit: View {
     
     var task = Transaction()
     @State  var number = 0
-    @State var sumNeed = 0
+    //@State var sumNeed = 0
     @State  var countWant: Float = 0.0
     @State  var countNeed: Float = 0.0
     @State  var countJoy: Float = 0.0
@@ -41,8 +41,6 @@ struct Habit: View {
        let itemFetchRequestWant: NSFetchRequest<Transaction> = Transaction.fetchRequest()
        
        itemFetchRequestWant.predicate = NSPredicate(format: "category == %@", "Want")
-        
-
         
         let itemFetchRequestJoy: NSFetchRequest<Transaction> = Transaction.fetchRequest()
         
@@ -73,15 +71,18 @@ struct Habit: View {
        }
     
     }
-    /*
+    
         // FetchRequest with predicate set to "after now"
     @FetchRequest(entity: Transaction.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Transaction.money, ascending: false)], predicate: NSPredicate(format: "category == %@", "Need")) var fetchRequest: FetchedResults<Transaction>
     
         // sum results using reduce
-    let sum = fetchRequest.reduce(0) { $0 + (Double($1).money ?? 0.0) }
-        
-    */
+    var sum : Double {
+        fetchRequest.reduce(0) {
+            $0+$1.amount
+        }
+    }
     
+
 
     var body: some View {
         
@@ -119,7 +120,7 @@ struct Habit: View {
                     .fontWeight(.medium)
                     .multilineTextAlignment(.leading)
                
-                Text("$100(\(ratioNeed)%)")
+                Text("$\(sum)(\(ratioNeed)%)")
                 
             }
             
@@ -138,7 +139,7 @@ struct Habit: View {
                     .font(.title)
                     .fontWeight(.medium)
                 
-                Text("$100(\(ratioWant)%)")
+                Text("$\(sum)(\(ratioWant)%)")
             }
     }
     .padding(.bottom, 50.0)
@@ -155,7 +156,7 @@ struct Habit: View {
                     .font(.title)
                     .fontWeight(.medium)
                
-                Text("$100(\(ratioJoy)%)")
+                Text("$\(sum)(\(ratioJoy)%)")
             }
             
     }
