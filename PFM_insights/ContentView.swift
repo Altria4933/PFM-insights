@@ -28,6 +28,7 @@ struct ContentView: View {
             Home().tabItem { Image(systemName: "target")
                 Text("Goal")
             }
+            
             Login()
                 .navigationBarHidden(true)
                 .navigationBarBackButtonHidden(true)
