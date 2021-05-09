@@ -117,8 +117,9 @@ struct NewDataView: View {
         }catch {
             alertTitle = "Error"
             alertBody = "Sorry, there was a problem"
+            showingAlert = true
         }
-        showingAlert = true
+        
     }
     
     func update() {
