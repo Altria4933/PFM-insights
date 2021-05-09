@@ -53,7 +53,7 @@ class HomeViewModel : ObservableObject{
     
     func writeData(context : NSManagedObjectContext){
         //convert amount(string) to double
-        amount = Double(money)!
+        //amount = Double(money)!
         
         // Updating Item.....
         
@@ -65,6 +65,7 @@ class HomeViewModel : ObservableObject{
             updateItem.vendor = vendor
             updateItem.money = money
             updateItem.category = category
+            updateItem.amount = amount
             try! context.save()
             
             // removing updatingItem if successful
@@ -107,7 +108,7 @@ class HomeViewModel : ObservableObject{
     
     func EditItem(item: Transaction){
         //convert amount(string) to double
-        amount = Double(money)!
+        //amount = Double(money)!
         
         updateItem = item
         // togging the newDataView....

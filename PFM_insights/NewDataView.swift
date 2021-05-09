@@ -106,6 +106,8 @@ struct NewDataView: View {
         dateformatter.dateStyle = .short
         dateString = dateformatter.string(from: homeData.date)
         amount = Double(homeData.money) ?? 0.0
+        homeData.amount = amount
+        
         do{
             let prediction = try
                 model.prediction(Date:String(dateString),Description:String(homeData.vendor),Amount:Double(amount))
