@@ -24,8 +24,21 @@
 		1FBD14BE2633FCFA007812A3 /* CustomButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBD14BD2633FCFA007812A3 /* CustomButtonModifier.swift */; };
 		1FBD14C12633FD1A007812A3 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBD14C02633FD1A007812A3 /* Register.swift */; };
 		1FBD14C52633FD6D007812A3 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBD14C42633FD6D007812A3 /* CustomTextField.swift */; };
+		250B8CD726523F5700AF492A /* ValidationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250B8CD626523F5700AF492A /* ValidationService.swift */; };
 		252EF04B2635201000D72732 /* PFM model.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 252EF04A2635201000D72732 /* PFM model.mlmodel */; };
+		254144C82650DDDB00CB7635 /* PFM_insightsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254144C72650DDDB00CB7635 /* PFM_insightsTests.swift */; };
+		25862EC52650E50000E90998 /* New Data tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25862EC42650E50000E90998 /* New Data tests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		254144CA2650DDDB00CB7635 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FBD14732633CCDD007812A3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1FBD147A2633CCDD007812A3;
+			remoteInfo = PFM_insights;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1F0CB1C926345F4500DE63C6 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
@@ -47,11 +60,23 @@
 		1FBD14BD2633FCFA007812A3 /* CustomButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonModifier.swift; sourceTree = "<group>"; };
 		1FBD14C02633FD1A007812A3 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		1FBD14C42633FD6D007812A3 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		250B8CD626523F5700AF492A /* ValidationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationService.swift; sourceTree = "<group>"; };
 		252EF04A2635201000D72732 /* PFM model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "PFM model.mlmodel"; sourceTree = "<group>"; };
+		254144C52650DDDA00CB7635 /* PFM_insightsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PFM_insightsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		254144C72650DDDB00CB7635 /* PFM_insightsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PFM_insightsTests.swift; sourceTree = "<group>"; };
+		254144C92650DDDB00CB7635 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		25862EC42650E50000E90998 /* New Data tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "New Data tests.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		1FBD14782633CCDD007812A3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		254144C22650DDDA00CB7635 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -65,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				1FBD147D2633CCDD007812A3 /* PFM_insights */,
+				254144C62650DDDA00CB7635 /* PFM_insightsTests */,
 				1FBD147C2633CCDD007812A3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -73,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				1FBD147B2633CCDD007812A3 /* PFM_insights.app */,
+				254144C52650DDDA00CB7635 /* PFM_insightsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -93,6 +120,7 @@
 				1FBD14AF2633DFCB007812A3 /* Habit.swift */,
 				1FAFE33F2641562C002CE20A /* HabitViewModel.swift */,
 				1FBD14962633CDE8007812A3 /* HomeViewModel.swift */,
+				250B8CD626523F5700AF492A /* ValidationService.swift */,
 				1FBD14822633CCDF007812A3 /* Assets.xcassets */,
 				1FBD14872633CCDF007812A3 /* Persistence.swift */,
 				252EF04A2635201000D72732 /* PFM model.mlmodel */,
@@ -109,6 +137,16 @@
 				1FBD14852633CCDF007812A3 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		254144C62650DDDA00CB7635 /* PFM_insightsTests */ = {
+			isa = PBXGroup;
+			children = (
+				254144C72650DDDB00CB7635 /* PFM_insightsTests.swift */,
+				254144C92650DDDB00CB7635 /* Info.plist */,
+				25862EC42650E50000E90998 /* New Data tests.swift */,
+			);
+			path = PFM_insightsTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,17 +169,39 @@
 			productReference = 1FBD147B2633CCDD007812A3 /* PFM_insights.app */;
 			productType = "com.apple.product-type.application";
 		};
+		254144C42650DDDA00CB7635 /* PFM_insightsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 254144CE2650DDDB00CB7635 /* Build configuration list for PBXNativeTarget "PFM_insightsTests" */;
+			buildPhases = (
+				254144C12650DDDA00CB7635 /* Sources */,
+				254144C22650DDDA00CB7635 /* Frameworks */,
+				254144C32650DDDA00CB7635 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				254144CB2650DDDB00CB7635 /* PBXTargetDependency */,
+			);
+			name = PFM_insightsTests;
+			productName = PFM_insightsTests;
+			productReference = 254144C52650DDDA00CB7635 /* PFM_insightsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		1FBD14732633CCDD007812A3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1240;
+				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
 					1FBD147A2633CCDD007812A3 = {
 						CreatedOnToolsVersion = 12.4;
+					};
+					254144C42650DDDA00CB7635 = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = 1FBD147A2633CCDD007812A3;
 					};
 				};
 			};
@@ -159,6 +219,7 @@
 			projectRoot = "";
 			targets = (
 				1FBD147A2633CCDD007812A3 /* PFM_insights */,
+				254144C42650DDDA00CB7635 /* PFM_insightsTests */,
 			);
 		};
 /* End PBXProject section */
@@ -170,6 +231,13 @@
 			files = (
 				1FBD14862633CCDF007812A3 /* Preview Assets.xcassets in Resources */,
 				1FBD14832633CCDF007812A3 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		254144C32650DDDA00CB7635 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,6 +256,7 @@
 				1FBD14BE2633FCFA007812A3 /* CustomButtonModifier.swift in Sources */,
 				1FBD14C12633FD1A007812A3 /* Register.swift in Sources */,
 				1FBD14972633CDE8007812A3 /* HomeViewModel.swift in Sources */,
+				250B8CD726523F5700AF492A /* ValidationService.swift in Sources */,
 				1FBD149B2633CE1F007812A3 /* ContentView.swift in Sources */,
 				252EF04B2635201000D72732 /* PFM model.mlmodel in Sources */,
 				1FBD14882633CCDF007812A3 /* Persistence.swift in Sources */,
@@ -199,7 +268,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		254144C12650DDDA00CB7635 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				25862EC52650E50000E90998 /* New Data tests.swift in Sources */,
+				254144C82650DDDB00CB7635 /* PFM_insightsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		254144CB2650DDDB00CB7635 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1FBD147A2633CCDD007812A3 /* PFM_insights */;
+			targetProxy = 254144CA2650DDDB00CB7635 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		1FBD148D2633CCDF007812A3 /* Debug */ = {
@@ -362,6 +448,48 @@
 			};
 			name = Release;
 		};
+		254144CC2650DDDB00CB7635 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BT7Y7K6S67;
+				INFOPLIST_FILE = PFM_insightsTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "AUT.PFM-insightsTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PFM_insights.app/PFM_insights";
+			};
+			name = Debug;
+		};
+		254144CD2650DDDB00CB7635 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BT7Y7K6S67;
+				INFOPLIST_FILE = PFM_insightsTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "AUT.PFM-insightsTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PFM_insights.app/PFM_insights";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -379,6 +507,15 @@
 			buildConfigurations = (
 				1FBD14902633CCDF007812A3 /* Debug */,
 				1FBD14912633CCDF007812A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		254144CE2650DDDB00CB7635 /* Build configuration list for PBXNativeTarget "PFM_insightsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				254144CC2650DDDB00CB7635 /* Debug */,
+				254144CD2650DDDB00CB7635 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

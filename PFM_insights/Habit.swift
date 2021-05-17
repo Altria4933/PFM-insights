@@ -22,8 +22,11 @@ struct Habit: View {
     @State  var countNeed: Float = 0.0
     @State  var countJoy: Float = 0.0
     @State var ratioWant: Float = 0.0
+    @State var intWant: Int = 0
     @State  var ratioNeed: Float = 0.0
+    @State var intNeed: Int = 0
     @State  var ratioJoy: Float = 0.0
+    @State var intJoy: Int = 0
     
     func getRecordsCount() {
             let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Transaction")
@@ -57,8 +60,11 @@ struct Habit: View {
         countNeed = Float(try context.count(for: itemFetchRequestNeed))
            
         ratioWant = (countWant) / (countWant + countJoy + countNeed) * 100
+        intWant = Int(ratioWant)
         ratioJoy = (countJoy) / (countWant + countJoy + countNeed) * 100
+        intJoy = Int(ratioJoy)
         ratioNeed = (countNeed) / (countWant + countJoy + countNeed) * 100
+        intNeed = Int(ratioNeed)
           print (Int(countWant))
           print (Int(countJoy))
           print (Int(countNeed))
@@ -73,7 +79,7 @@ struct Habit: View {
     }
     
         // FetchRequest with predicate set to "after now"
-    @FetchRequest(entity: Transaction.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Transaction.money, ascending: false)], predicate: NSPredicate(format: "category == %@", "Need")) var fetchRequest: FetchedResults<Transaction>
+    @FetchRequest(entity: Transaction.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Transaction.money, ascending: false)] ) var fetchRequest: FetchedResults<Transaction>
     
         // sum results using reduce
     var sum : Double {
@@ -81,6 +87,8 @@ struct Habit: View {
             $0+$1.amount
         }
     }
+
+
     
     func RatioNeed() {
         
@@ -123,7 +131,7 @@ struct Habit: View {
                     .fontWeight(.medium)
                     .multilineTextAlignment(.leading)
                 SumNeed()
-                Text("(\(ratioNeed)%)")
+                Text("Percentage: (\(intNeed)%)")
                 
             }
             
@@ -142,7 +150,7 @@ struct Habit: View {
                     .font(.title)
                     .fontWeight(.medium)
                 SumWant()
-                Text("(\(ratioWant)%)")
+                Text("Percentage: (\(intWant)%) \(sum)")
             }
     }
     .padding(.bottom, 50.0)
@@ -159,7 +167,7 @@ struct Habit: View {
                     .font(.title)
                     .fontWeight(.medium)
                 SumJoy()
-                Text("$(\(ratioJoy)%)")
+                Text("Percentage: (\(intJoy)%)")
             }
             
     }
@@ -186,6 +194,7 @@ struct SumNeed: View {
             $0+$1.amount
         }
     }
+    
     var body: some View {
         VStack{
             Text("$\(Int(sumNeed))")
@@ -226,5 +235,7 @@ struct SumJoy: View {
         }
     }
 }
+
+
 
 

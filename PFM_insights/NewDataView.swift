@@ -7,7 +7,9 @@
 
 import SwiftUI
 
+
 struct NewDataView: View {
+    
     @ObservedObject var homeData : HomeViewModel
     @Environment(\.managedObjectContext) var context
     @State private var vendor = ""
@@ -16,7 +18,6 @@ struct NewDataView: View {
     @State private var dateString = ""
     @State private var amountString = ""
     @State private var Category = ""
-    
     @State private var alertTitle = ""
     @State private var alertBody = ""
     @State private var showingAlert = false
@@ -32,7 +33,7 @@ struct NewDataView: View {
                     .foregroundColor(Color("MainColor"))
                     .padding()
             }
-           Section{
+            Section{
                 Text("Please enter the vendor name")
                     .font(.title3)
                     .fontWeight(.regular)
@@ -128,15 +129,16 @@ struct NewDataView: View {
         calculate()
         homeData.writeData(context: context)
     }
+    
 }
 
 struct NewDataView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            
-            
-            
-}
+        
+        
+        
+    }
 }
 
 

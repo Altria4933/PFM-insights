@@ -19,6 +19,15 @@ class HomeViewModel : ObservableObject{
     // For NewData Sheet...
     @Published var isNewData = false
     
+   /* private let validation: ValidationService
+    init (validation : ValidationService){
+        self.validation = validation
+        super.init()
+    }
+    required init(coder: NSCoder) {
+        self.validation = ValidationService()
+           super.init(coder: coder)
+       } */
     // Checking And Updating Date....
     
     // Storing Update Item...
