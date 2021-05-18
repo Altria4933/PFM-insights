@@ -21,6 +21,8 @@ struct NewDataView: View {
     @State private var alertTitle = ""
     @State private var alertBody = ""
     @State private var showingAlert = false
+    var categories = ["Need", "Want", "Joy"]
+    @State private var selectedCategory = ""
     
     var body: some View {
         
@@ -56,9 +58,20 @@ struct NewDataView: View {
                     .keyboardType(.numberPad)
                     .padding()
             }
-            
-            
-            
+            Section{
+                Text("Please sugget a transaction category")
+                    .font(.title3)
+                    .fontWeight(.regular)
+                    .foregroundColor(Color("TextColor"))
+                    .padding()
+                Picker( selection: $homeData.category,label: Text("Category")){
+                    ForEach(categories, id: \.self) {
+                        Text($0)
+                    }
+                }
+                .pickerStyle(SegmentedPickerStyle())
+                
+            }
             Section{
                 Text("Please select the transaction date")
                     .font(.title3)
@@ -127,6 +140,7 @@ struct NewDataView: View {
     
     func update() {
         calculate()
+        //homeData.category = selectedCategory
         homeData.writeData(context: context)
     }
     
