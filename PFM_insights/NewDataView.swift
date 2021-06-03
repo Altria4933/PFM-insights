@@ -55,7 +55,7 @@ struct NewDataView: View {
                 TextField("Transaction Amount",
                           text: $homeData.money)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .keyboardType(.numberPad)
+                    .keyboardType(.decimalPad)
                     .padding()
             }
             Section{
