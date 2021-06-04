@@ -24,6 +24,7 @@ struct NewDataView: View {
     var categories = ["Need", "Want", "Joy"]
     @State private var selectedCategory = ""
     
+    
     var body: some View {
         
         VStack(alignment: .leading, spacing: 2){
@@ -34,6 +35,9 @@ struct NewDataView: View {
                     .fontWeight(.semibold)
                     .foregroundColor(Color("MainColor"))
                     .padding()
+                    .onTapGesture {
+                              self.hideKeyboard()
+                            }
             }
             Section{
                 Text("Please enter the vendor name")
@@ -45,6 +49,9 @@ struct NewDataView: View {
                           text: $homeData.vendor)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
+                    .onTapGesture {
+                              self.hideKeyboard()
+                            }
             }
             Section{
                 Text("Please select the transaction amount")
@@ -57,6 +64,9 @@ struct NewDataView: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .keyboardType(.decimalPad)
                     .padding()
+                    .onTapGesture {
+                              self.hideKeyboard()
+                            }
             }
             Section{
                 Text("Please sugget a transaction category")
@@ -70,7 +80,6 @@ struct NewDataView: View {
                     }
                 }
                 .pickerStyle(SegmentedPickerStyle())
-                
             }
             Section{
                 Text("Please select the transaction date")
@@ -83,6 +92,9 @@ struct NewDataView: View {
                 DatePicker("", selection: $homeData.date, displayedComponents: .date)
                     .labelsHidden()
                     .accentColor(Color("MainColor"))
+                    .onTapGesture {
+                              self.hideKeyboard()
+                            }
             }
             .padding()
             
@@ -92,12 +104,12 @@ struct NewDataView: View {
                 Label(
                     title: { Text(homeData.updateItem == nil ? "Add Now" : "Update")
                         .font(.title)
-                        .foregroundColor(.white)
+                        .foregroundColor(Color("txt"))
                         .fontWeight(.bold)
                     },
                     icon: { Image(systemName: "plus")
                         .font(.title)
-                        .foregroundColor(.white)
+                        .foregroundColor(Color("txt"))
                     })
                     .padding(.vertical)
                     .frame(width: UIScreen.main.bounds.width - 30)
@@ -140,9 +152,12 @@ struct NewDataView: View {
     
     func update() {
         calculate()
+        
         //homeData.category = selectedCategory
         homeData.writeData(context: context)
     }
+    
+    
     
 }
 
@@ -154,6 +169,12 @@ struct NewDataView_Previews: PreviewProvider {
         
     }
 }
-
+#if canImport(UIKit)
+extension View {
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+}
+#endif
 
 

@@ -150,7 +150,7 @@ struct Habit: View {
                     .font(.title)
                     .fontWeight(.medium)
                 SumWant()
-                Text("Percentage: (\(intWant)%) \(sum)")
+                Text("Percentage: (\(intWant)%) ")
             }
     }
     .padding(.bottom, 50.0)
